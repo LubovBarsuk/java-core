@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Scanner;
 
-public class Test {
+public class Main {
     public static void main(String[] args) {
         /* Методы:
 
@@ -66,9 +66,20 @@ public class Test {
         }
         if (flag) {
 
-
             //весь код
 
+            System.out.println("Чтобы принять на работу нового сотрудника введите 1");
+            Scanner scanner1 = new Scanner(System.in);
+            int choise = scanner1.nextInt();
+            switch (choise) {
+                case 1:
+                    Recruiter.hireEmployee();
+                    break;
+                default:
+                    System.out.println("Введите 1");
+            }
+
+            System.out.println(EmployeeRoster.employeeRoster);
         }
     }
 }
