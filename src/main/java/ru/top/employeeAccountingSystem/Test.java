@@ -1,5 +1,8 @@
 package ru.top.employeeAccountingSystem;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Test {
@@ -11,12 +14,13 @@ public class Test {
         при входе требуем и проверяем
 
          - принимать на работу новых сотрудников
-         метод, который создаёт новый объект класса работник и записывает в файл
+         метод, который создаёт новый объект класса работник и записывает в файл   -есть
         принимает данные. такие как фио, зарплата и пр поля
-        вводим отдел, а начальник отдела добавляется из мапы сам
+        вводим отдел, а начальник отдела добавляется из энама сам
+        работники записываются в мапу, при увольнении удаляются
 
         - увольнять сотрудников
-        метод удаляет сотрудника из файла и вообще
+        метод удаляет сотрудника из мапы с работниками
 
         - изменять информацию о сотрудниках
         метод спрашивает, у какого сотрудника надо что-то менять,
@@ -42,6 +46,30 @@ public class Test {
 
          */
 
+        Map<String, String> loginAndPassword = new HashMap<>(); //загружаем базу логинов и паролей
+        LoginAndPasswordData.createLoginAndPasswordTable(loginAndPassword);
 
+        System.out.println("Введите логин:");
+        Scanner scanner = new Scanner(System.in);
+        String login = scanner.nextLine();
+        boolean flag = false;
+        if (loginAndPassword.containsKey(login)) {
+            System.out.println("Введите пароль:");
+            String password = scanner.nextLine();
+            if (Objects.equals(password, loginAndPassword.get(login))) {
+                flag = true;
+            } else {
+                System.out.println("Неправильный пароль");
+            }
+        } else {
+            System.out.println("Неправильный логин");
+        }
+        if (flag) {
+
+
+            //весь код
+
+        }
     }
 }
+

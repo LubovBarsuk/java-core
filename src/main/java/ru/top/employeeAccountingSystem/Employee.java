@@ -1,9 +1,14 @@
 package ru.top.employeeAccountingSystem;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class Employee {
+public class Employee implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = 5443952939914818170L;
     private String name;
     private LocalDate birthdate;
     private String sex;
