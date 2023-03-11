@@ -19,7 +19,7 @@ public class Main {
         вводим отдел, а начальник отдела добавляется из энама сам
         работники записываются в мапу, при увольнении удаляются
 
-        - увольнять сотрудников
+        - увольнять сотрудников                                 -есть
         метод удаляет сотрудника из мапы с работниками
 
         - изменять информацию о сотрудниках
@@ -68,12 +68,18 @@ public class Main {
 
             //весь код
 
-            System.out.println("Чтобы принять на работу нового сотрудника введите 1");
+            System.out.println("Введите:\n 1 чтобы нанять нового сотрудника\n2 чтобы уволить сотрудника\n");
             Scanner scanner1 = new Scanner(System.in);
             int choise = scanner1.nextInt();
             switch (choise) {
                 case 1:
                     Recruiter.hireEmployee();
+                    break;
+                case 2:
+                    System.out.println("Введите ФИО увольняемого сотрудника:");
+                    Scanner scanner2 = new Scanner(System.in);
+                    String employeeName = scanner2.nextLine();
+                    Method.dismissEmployee(EmployeeRoster.employeeRoster.get(employeeName));
                     break;
                 default:
                     System.out.println("Введите 1");
