@@ -32,7 +32,7 @@ public class Main {
         - отчёт по структуре организации
         инфа об отделах и их начальниках
 
-        - отчётпо средней зарплате
+        - отчёт по средней зарплате
          по организации и по отделам
 
         - топ10 самых дорогих сотрудников по зарплате
@@ -68,10 +68,10 @@ public class Main {
 
             //весь код
 
-            System.out.println("Введите:\n 1 чтобы нанять нового сотрудника\n2 чтобы уволить сотрудника\n");
+            System.out.println("Введите:\n1 - нанять нового сотрудника\n2 - уволить сотрудника\n");
             Scanner scanner1 = new Scanner(System.in);
-            int choise = scanner1.nextInt();
-            switch (choise) {
+            int choice = scanner1.nextInt();
+            switch (choice) {
                 case 1:
                     Recruiter.hireEmployee();
                     break;
