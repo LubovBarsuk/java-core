@@ -16,7 +16,7 @@ public class Recruiter {
         String newName = scanner.nextLine();
         System.out.println("Введите дату рождения сотрудника(гггг-мм-дд):");
         LocalDate newBirthdate = LocalDate.parse(scanner.nextLine());
-        System.out.println("Введите пол сотрудника (f/m):");
+        System.out.println("Введите пол сотрудника (м/ж):");
         String newSex = scanner.nextLine();
         System.out.println("Введите телефонный номер сотрудника(10 цифр):");
         String newPhoneNumber = scanner.nextLine();

@@ -119,15 +119,15 @@ public class Employee implements Serializable {
     @Override
     public String toString() {
         return "Employee{" +
-                "name='" + name + '\'' +
-                ", birthdate=" + birthdate +
-                ", sex='" + sex + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", post='" + post + '\'' +
-                ", department='" + department + '\'' +
-                ", chief='" + chief + '\'' +
-                ", dateOfEmployment=" + dateOfEmployment +
-                ", salary=" + salary +
+                "Имя='" + name + '\'' +
+                ", дата рождения=" + birthdate +
+                ", пол='" + sex + '\'' +
+                ", номер телефона='" + phoneNumber + '\'' +
+                ", должность='" + post + '\'' +
+                ", отдел='" + department + '\'' +
+                ", руководитель='" + chief + '\'' +
+                ", дата приёма на работу=" + dateOfEmployment +
+                ", зарплата=" + salary +
                 '}';
     }
 }

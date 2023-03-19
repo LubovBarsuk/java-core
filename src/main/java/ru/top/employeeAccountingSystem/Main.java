@@ -22,11 +22,11 @@ public class Main {
         - увольнять сотрудников                                 -есть
         метод удаляет сотрудника из мапы с работниками
 
-        - изменять информацию о сотрудниках
+        - изменять информацию о сотрудниках                         -есть
         метод спрашивает, у какого сотрудника надо что-то менять,
         что именно надо изменить и перезаписывает в файле
 
-        - поиск и вывод сотрудников
+        - поиск и вывод сотрудников                            -есть
         по фио, должности, отделу и начальнику
 
         - отчёт по структуре организации
@@ -38,7 +38,7 @@ public class Main {
         - топ10 самых дорогих сотрудников по зарплате
         сотрировка по зарплате
 
-        - топ10 самых преданных сутрудников
+        - топ10 самых преданных сотрудников
         по количеству лет в организации
         здесь будем вычитать даты
 
@@ -64,28 +64,36 @@ public class Main {
         } else {
             System.out.println("Неправильный логин");
         }
-        if (flag) {
+        while (flag) {
 
             //весь код
 
-            System.out.println("Введите:\n1 - нанять нового сотрудника\n2 - уволить сотрудника\n");
+            System.out.println("Введите:\n1 - нанять нового сотрудника\n2 - уволить сотрудника\n3 - поменять данные сотрудника\n4 - показать сотрудников по фамилии, отделу, должности, руководителю");
             Scanner scanner1 = new Scanner(System.in);
             int choice = scanner1.nextInt();
             switch (choice) {
                 case 1:
                     Recruiter.hireEmployee();
+                    System.out.println(EmployeeRoster.employeeRoster);
                     break;
                 case 2:
                     System.out.println("Введите ФИО увольняемого сотрудника:");
                     Scanner scanner2 = new Scanner(System.in);
                     String employeeName = scanner2.nextLine();
                     Method.dismissEmployee(EmployeeRoster.employeeRoster.get(employeeName));
+                    System.out.println(EmployeeRoster.employeeRoster);
+                    break;
+                case 3:
+                    Method.changeEmployeeInfo();
+                    break;
+                case 4:
+                    Report.searchEmployee();
                     break;
                 default:
                     System.out.println("Введите 1");
             }
 
-            System.out.println(EmployeeRoster.employeeRoster);
+
         }
     }
 }
