@@ -29,10 +29,10 @@ public class Main {
         - поиск и вывод сотрудников                            -есть
         по фио, должности, отделу и начальнику
 
-        - отчёт по структуре организации
+        - отчёт по структуре организации                      -есть
         инфа об отделах и их начальниках
 
-        - отчёт по средней зарплате
+        - отчёт по средней зарплате                    -только по организации
          по организации и по отделам
 
         - топ10 самых дорогих сотрудников по зарплате
@@ -42,7 +42,7 @@ public class Main {
         по количеству лет в организации
         здесь будем вычитать даты
 
-        Всё это читаем из файлов, отчёты пишем в файлы, поиск и вывод сотрудников показываем в консоли
+        отчёты пишем в файлы, поиск и вывод сотрудников показываем в консоли
 
          */
 
@@ -66,34 +66,31 @@ public class Main {
         }
         while (flag) {
 
-            //весь код
-
-            System.out.println("Введите:\n1 - нанять нового сотрудника\n2 - уволить сотрудника\n3 - поменять данные сотрудника\n4 - показать сотрудников по фамилии, отделу, должности, руководителю");
+            OldEmployee.createOldEmployeeData();
+            System.out.println("""
+                    Введите:
+                    1 - нанять нового сотрудника
+                    2 - уволить сотрудника
+                    3 - поменять данные сотрудника
+                    4 - показать сотрудников по фамилии, отделу, должности, руководителю
+                    5 - создать отчёт по отделам и руководителям
+                    6 - создать отчёт по средней зарплате""");
             Scanner scanner1 = new Scanner(System.in);
             int choice = scanner1.nextInt();
             switch (choice) {
-                case 1:
-                    Recruiter.hireEmployee();
-                    System.out.println(EmployeeRoster.employeeRoster);
-                    break;
-                case 2:
+                case 1 -> Recruiter.hireEmployee();
+                case 2 -> {
                     System.out.println("Введите ФИО увольняемого сотрудника:");
                     Scanner scanner2 = new Scanner(System.in);
                     String employeeName = scanner2.nextLine();
                     Method.dismissEmployee(EmployeeRoster.employeeRoster.get(employeeName));
-                    System.out.println(EmployeeRoster.employeeRoster);
-                    break;
-                case 3:
-                    Method.changeEmployeeInfo();
-                    break;
-                case 4:
-                    Report.searchEmployee();
-                    break;
-                default:
-                    System.out.println("Введите 1");
+                }
+                case 3 -> Method.changeEmployeeInfo();
+                case 4 -> Report.searchEmployee();
+                case 5 -> Report.showDepartmentInfo();
+                case 6 -> Report.showAverageSalary();
+                default -> System.out.println("Неправильный ввод");
             }
-
-
         }
     }
 }

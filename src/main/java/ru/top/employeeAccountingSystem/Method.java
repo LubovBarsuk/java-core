@@ -32,7 +32,7 @@ public class Method {
                     5 - отдел
                     6 - дату приёма на работу
                     7 - зарплату""");
-//            Scanner scan = new Scanner(System.in);
+
             int choice = scan.nextInt();
             switch (choice) {
                 case 1 -> {//дата рождения

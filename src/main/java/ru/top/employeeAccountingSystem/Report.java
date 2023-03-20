@@ -1,5 +1,7 @@
 package ru.top.employeeAccountingSystem;
 
+import java.io.FileWriter;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -9,7 +11,12 @@ public class Report {
 //        по фио, должности, отделу и начальнику
     public static void searchEmployee() {
 
-        System.out.println("Выберите параметр для вывода сотрудников:\n1 - фамилия, имя, отчество\n2 - должность\n3 - отдел\n4 - руководитель отдела");
+        System.out.println("""
+                Выберите параметр для вывода сотрудников:
+                1 - фамилия, имя, отчество
+                2 - должность
+                3 - отдел
+                4 - руководитель отдела""");
         Scanner scanner = new Scanner(System.in);
         int searchData = scanner.nextInt();
         switch (searchData) {
@@ -53,6 +60,49 @@ public class Report {
                 }
             }
             default -> System.out.println("Неправильный выбор");
+        }
+    }
+
+    //     - отчёт по структуре организации
+//    инфа об отделах и их начальниках
+    public static void showDepartmentInfo() {
+
+        try (FileWriter fileWriter = new FileWriter("C:\\Projects\\java214\\java-core\\src\\departmentInfo.txt", false)) {
+
+            Map<String, String> departmentInfo = new HashMap<>();
+            departmentInfo.put("Бухгалтерия", "Белова Вероника Сергеевна");
+            departmentInfo.put("Отдел кадров", "Николаева Алиса Тимофеевна");
+            departmentInfo.put("ИТ", "Иванов Сергей Анатольевич");
+            departmentInfo.put("Производство", "Сидоров Александр Петрович");
+            departmentInfo.put("Администрация", "Петров Николай Иванович");
+
+            fileWriter.write(String.valueOf(departmentInfo));
+            fileWriter.flush();
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
+        }
+    }
+
+    //    - отчёт по средней зарплате
+//    по организации и по отделам
+    public static void showAverageSalary() {
+
+        try (FileWriter fileWriter = new FileWriter("C:\\Projects\\java214\\java-core\\src\\averageSalary.txt", false)) {
+
+            Double generalSalary = 0.0;
+            Double generalAverageSalary = 0.0;
+            for (Map.Entry<String, Employee> entry : EmployeeRoster.employeeRoster.entrySet()) {
+                Employee employee = entry.getValue();
+
+                Double salary = employee.getSalary();
+                generalSalary = generalSalary + salary;
+            }
+            generalAverageSalary = generalSalary / EmployeeRoster.employeeRoster.size();
+            fileWriter.write(String.valueOf(generalAverageSalary));
+            fileWriter.flush();
+
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
         }
     }
 }
