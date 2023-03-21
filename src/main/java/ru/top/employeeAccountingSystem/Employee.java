@@ -118,7 +118,7 @@ public class Employee implements Serializable {
 
     @Override
     public String toString() {
-        return "Employee{" +
+        return "Работник{" +
                 "Имя='" + name + '\'' +
                 ", дата рождения=" + birthdate +
                 ", пол='" + sex + '\'' +
