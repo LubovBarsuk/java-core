@@ -1,9 +1,14 @@
 package ru.top.employeeAccountingSystem;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class Employee {
+public class Employee implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = 5443952939914818170L;
     private String name;
     private LocalDate birthdate;
     private String sex;
@@ -113,16 +118,16 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "Employee{" +
-                "name='" + name + '\'' +
-                ", birthdate=" + birthdate +
-                ", sex='" + sex + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", post='" + post + '\'' +
-                ", department='" + department + '\'' +
-                ", chief='" + chief + '\'' +
-                ", dateOfEmployment=" + dateOfEmployment +
-                ", salary=" + salary +
+        return "Работник{" +
+                "Имя='" + name + '\'' +
+                ", дата рождения=" + birthdate +
+                ", пол='" + sex + '\'' +
+                ", номер телефона='" + phoneNumber + '\'' +
+                ", должность='" + post + '\'' +
+                ", отдел='" + department + '\'' +
+                ", руководитель='" + chief + '\'' +
+                ", дата приёма на работу=" + dateOfEmployment +
+                ", зарплата=" + salary +
                 '}';
     }
 }
